@@ -16,7 +16,6 @@
         region: "{{region}}"
       register: vprokey_out
 
-
     - name: Save private key into file loginkey_vpro.pem
       copy:
         content: "{{vprokey_out.key.private_key}}"
