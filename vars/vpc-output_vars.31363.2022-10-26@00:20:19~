@@ -12,5 +12,5 @@ NATGWid: nat-05ffeb50d6abbc7ae
 privRTid: rtb-080b68e17f30f43ce
 BastionSGid: 
 # BEGIN ANSIBLE MANAGED BLOCK
-BastionSGid: sg-05a5320aebfe04793 
+#BastionSGid: sg-05a5320aebfe04793 
 # END ANSIBLE MANAGED BLOCK
