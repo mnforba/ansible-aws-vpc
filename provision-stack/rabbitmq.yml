@@ -65,7 +65,6 @@
       tags:
         - conf
 
-
     - rabbitmq_user:
         user: test
         password: test
