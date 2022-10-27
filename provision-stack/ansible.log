@@ -55,3 +55,110 @@
 2022-10-27 03:07:20,845 p=7051 u=ubuntu n=ansible | mc01                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2022-10-27 03:07:20,845 p=7051 u=ubuntu n=ansible | rmq01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2022-10-27 03:07:20,845 p=7051 u=ubuntu n=ansible | web01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-10-27 04:21:23,301 p=7469 u=ubuntu n=ansible | ERROR! 'import_plabook' is not a valid attribute for a Play
+
+The error appears to be in '/home/ubuntu/ansible-aws-vpc/provision-stack/site.yml': line 5, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: Set Hosts to Ip MApping in /etc/hosts file of all servers
+  ^ here
+
+2022-10-27 04:23:05,764 p=7487 u=ubuntu n=ansible | ERROR! Unable to retrieve file contents
+Could not find or access '/home/ubuntu/ansible-aws-vpc/provision-stack/rabbitmq.yml' on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option
+2022-10-27 04:23:48,882 p=7492 u=ubuntu n=ansible | ERROR! Unable to retrieve file contents
+Could not find or access '/home/ubuntu/ansible-aws-vpc/provision-stack/rabbitmq.yml' on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option
+2022-10-27 04:26:42,905 p=7512 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] ****************************************************************
+2022-10-27 04:26:42,914 p=7512 u=ubuntu n=ansible | TASK [Gathering Facts] ***************************************************************************************************************
+2022-10-27 04:26:44,224 p=7512 u=ubuntu n=ansible | ok: [localhost]
+2022-10-27 04:26:44,240 p=7512 u=ubuntu n=ansible | TASK [Install jdk, maven, git] *******************************************************************************************************
+2022-10-27 04:26:52,649 p=7512 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-10-27 04:26:54,966 p=7512 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-10-27 04:26:56,999 p=7512 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-10-27 04:26:57,016 p=7512 u=ubuntu n=ansible | TASK [Clone source code from github] *************************************************************************************************
+2022-10-27 04:26:58,099 p=7512 u=ubuntu n=ansible | ok: [localhost]
+2022-10-27 04:26:58,112 p=7512 u=ubuntu n=ansible | TASK [mvn install command to build artifact] *****************************************************************************************
+2022-10-27 04:26:58,129 p=7512 u=ubuntu n=ansible | skipping: [localhost]
+2022-10-27 04:26:58,140 p=7512 u=ubuntu n=ansible | TASK [Copy artifacts to file directory] **********************************************************************************************
+2022-10-27 04:27:00,404 p=7512 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/Vprofile-repo/target/vprofile-v2.war)
+2022-10-27 04:27:00,415 p=7512 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] **********************************************************************************************
+2022-10-27 04:27:01,164 p=7512 u=ubuntu n=ansible | ok: [localhost]
+2022-10-27 04:27:01,182 p=7512 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ***************************************************
+2022-10-27 04:27:01,187 p=7512 u=ubuntu n=ansible | TASK [Gathering Facts] ***************************************************************************************************************
+2022-10-27 04:27:02,998 p=7512 u=ubuntu n=ansible | ok: [cntl]
+2022-10-27 04:27:03,136 p=7512 u=ubuntu n=ansible | ok: [web01]
+2022-10-27 04:27:03,239 p=7512 u=ubuntu n=ansible | ok: [rmq01]
+2022-10-27 04:27:03,266 p=7512 u=ubuntu n=ansible | ok: [app01]
+2022-10-27 04:27:03,281 p=7512 u=ubuntu n=ansible | ok: [mc01]
+2022-10-27 04:27:04,609 p=7512 u=ubuntu n=ansible | ok: [db01]
+2022-10-27 04:27:04,627 p=7512 u=ubuntu n=ansible | TASK [Import VPC setup Variable] *****************************************************************************************************
+2022-10-27 04:27:04,681 p=7512 u=ubuntu n=ansible | ok: [cntl]
+2022-10-27 04:27:04,709 p=7512 u=ubuntu n=ansible | ok: [web01]
+2022-10-27 04:27:04,758 p=7512 u=ubuntu n=ansible | ok: [app01]
+2022-10-27 04:27:04,783 p=7512 u=ubuntu n=ansible | ok: [rmq01]
+2022-10-27 04:27:04,785 p=7512 u=ubuntu n=ansible | ok: [mc01]
+2022-10-27 04:27:04,794 p=7512 u=ubuntu n=ansible | ok: [db01]
+2022-10-27 04:27:04,804 p=7512 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] *******************************************************************************************
+2022-10-27 04:27:05,669 p=7512 u=ubuntu n=ansible | ok: [app01]
+2022-10-27 04:27:05,673 p=7512 u=ubuntu n=ansible | ok: [rmq01]
+2022-10-27 04:27:05,677 p=7512 u=ubuntu n=ansible | ok: [mc01]
+2022-10-27 04:27:05,677 p=7512 u=ubuntu n=ansible | ok: [web01]
+2022-10-27 04:27:05,732 p=7512 u=ubuntu n=ansible | ok: [cntl]
+2022-10-27 04:27:06,000 p=7512 u=ubuntu n=ansible | ok: [db01]
+2022-10-27 04:27:06,019 p=7512 u=ubuntu n=ansible | PLAY [Setup Mysql with account db and remote login] **********************************************************************************
+2022-10-27 04:27:06,035 p=7512 u=ubuntu n=ansible | TASK [Installing Mysql Service and dependencies] *************************************************************************************
+2022-10-27 04:29:06,068 p=7512 u=ubuntu n=ansible | changed: [db01] => (item=mysql-server)
+2022-10-27 04:29:11,784 p=7512 u=ubuntu n=ansible | changed: [db01] => (item=mysql-client)
+2022-10-27 04:29:12,549 p=7512 u=ubuntu n=ansible | failed: [db01] (item=python-mysqldb) => {"ansible_loop_var": "item", "changed": false, "item": "python-mysqldb", "msg": "No package matching 'python-mysqldb' is available"}
+2022-10-27 04:29:17,565 p=7512 u=ubuntu n=ansible | changed: [db01] => (item=python3-mysqldb)
+2022-10-27 04:29:37,328 p=7512 u=ubuntu n=ansible | changed: [db01] => (item=libmysqlclient-dev)
+2022-10-27 04:29:37,331 p=7512 u=ubuntu n=ansible | ...ignoring
+2022-10-27 04:29:37,342 p=7512 u=ubuntu n=ansible | TASK [Start and enable mysql service] ************************************************************************************************
+2022-10-27 04:29:38,233 p=7512 u=ubuntu n=ansible | ok: [db01]
+2022-10-27 04:29:38,243 p=7512 u=ubuntu n=ansible | TASK [Creating mysql user] ***********************************************************************************************************
+2022-10-27 04:29:39,142 p=7512 u=ubuntu n=ansible | changed: [db01]
+2022-10-27 04:29:39,152 p=7512 u=ubuntu n=ansible | TASK [Creating accounts DB] **********************************************************************************************************
+2022-10-27 04:29:39,633 p=7512 u=ubuntu n=ansible | changed: [db01]
+2022-10-27 04:29:39,643 p=7512 u=ubuntu n=ansible | TASK [Enable remote login to mysql svc] **********************************************************************************************
+2022-10-27 04:29:40,121 p=7512 u=ubuntu n=ansible | changed: [db01]
+2022-10-27 04:29:40,131 p=7512 u=ubuntu n=ansible | RUNNING HANDLER [Restart mysql] ******************************************************************************************************
+2022-10-27 04:29:43,328 p=7512 u=ubuntu n=ansible | changed: [db01]
+2022-10-27 04:29:43,340 p=7512 u=ubuntu n=ansible | PLAY [Deploy SQL file on accounts db] ************************************************************************************************
+2022-10-27 04:29:43,353 p=7512 u=ubuntu n=ansible | TASK [Copy SQL to dbsrv] *************************************************************************************************************
+2022-10-27 04:29:44,219 p=7512 u=ubuntu n=ansible | changed: [db01]
+2022-10-27 04:29:44,229 p=7512 u=ubuntu n=ansible | TASK [Restoring DB] ******************************************************************************************************************
+2022-10-27 04:29:44,989 p=7512 u=ubuntu n=ansible | changed: [db01]
+2022-10-27 04:29:44,998 p=7512 u=ubuntu n=ansible | RUNNING HANDLER [Restart mysql] ******************************************************************************************************
+2022-10-27 04:29:47,830 p=7512 u=ubuntu n=ansible | changed: [db01]
+2022-10-27 04:29:47,841 p=7512 u=ubuntu n=ansible | PLAY [Install Memcache, Start & enable SVC] ******************************************************************************************
+2022-10-27 04:29:47,855 p=7512 u=ubuntu n=ansible | TASK [Install Memcache] **************************************************************************************************************
+2022-10-27 04:30:42,049 p=7512 u=ubuntu n=ansible | changed: [mc01]
+2022-10-27 04:30:42,059 p=7512 u=ubuntu n=ansible | TASK [Start & Enable Memcache] *******************************************************************************************************
+2022-10-27 04:30:42,547 p=7512 u=ubuntu n=ansible | ok: [mc01]
+2022-10-27 04:30:42,557 p=7512 u=ubuntu n=ansible | TASK [Enable remote login to memcache] ***********************************************************************************************
+2022-10-27 04:30:42,873 p=7512 u=ubuntu n=ansible | changed: [mc01]
+2022-10-27 04:30:42,884 p=7512 u=ubuntu n=ansible | RUNNING HANDLER [Restart memcached] **************************************************************************************************
+2022-10-27 04:30:43,386 p=7512 u=ubuntu n=ansible | changed: [mc01]
+2022-10-27 04:30:43,398 p=7512 u=ubuntu n=ansible | PLAY [Install & Setup RabbitMQ with user] ********************************************************************************************
+2022-10-27 04:30:43,412 p=7512 u=ubuntu n=ansible | TASK [Install Erlang Repository Package] *********************************************************************************************
+2022-10-27 04:30:46,179 p=7512 u=ubuntu n=ansible | changed: [rmq01]
+2022-10-27 04:30:46,190 p=7512 u=ubuntu n=ansible | TASK [Add an Erlang Solution public Key] *********************************************************************************************
+2022-10-27 04:30:47,236 p=7512 u=ubuntu n=ansible | ok: [rmq01]
+2022-10-27 04:30:47,247 p=7512 u=ubuntu n=ansible | TASK [Install Erlang] ****************************************************************************************************************
+2022-10-27 04:33:44,464 p=7512 u=ubuntu n=ansible | changed: [rmq01]
+2022-10-27 04:33:44,473 p=7512 u=ubuntu n=ansible | TASK [Add an Apt signing key, uses whichever key is at the URL] **********************************************************************
+2022-10-27 04:33:45,892 p=7512 u=ubuntu n=ansible | changed: [rmq01]
+2022-10-27 04:33:45,903 p=7512 u=ubuntu n=ansible | TASK [apt_repository] ****************************************************************************************************************
+2022-10-27 04:34:24,972 p=7512 u=ubuntu n=ansible | fatal: [rmq01]: FAILED! => {"changed": false, "msg": "Failed to update apt cache: unknown reason"}
+2022-10-27 04:34:24,973 p=7512 u=ubuntu n=ansible | PLAY RECAP ***************************************************************************************************************************
+2022-10-27 04:34:24,974 p=7512 u=ubuntu n=ansible | app01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-10-27 04:34:24,974 p=7512 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-10-27 04:34:24,974 p=7512 u=ubuntu n=ansible | db01                       : ok=12   changed=8    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+2022-10-27 04:34:24,974 p=7512 u=ubuntu n=ansible | localhost                  : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2022-10-27 04:34:24,974 p=7512 u=ubuntu n=ansible | mc01                       : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-10-27 04:34:24,974 p=7512 u=ubuntu n=ansible | rmq01                      : ok=7    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-10-27 04:34:24,975 p=7512 u=ubuntu n=ansible | web01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
