@@ -1,0 +1,57 @@
+2022-10-27 02:53:53,704 p=1124 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] ****************************************************************
+2022-10-27 02:53:53,720 p=1124 u=ubuntu n=ansible | TASK [Gathering Facts] ***************************************************************************************************************
+2022-10-27 02:53:55,529 p=1124 u=ubuntu n=ansible | ok: [localhost]
+2022-10-27 02:53:55,545 p=1124 u=ubuntu n=ansible | TASK [Install jdk, maven, git] *******************************************************************************************************
+2022-10-27 02:54:39,827 p=1124 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-10-27 02:56:00,005 p=1124 u=ubuntu n=ansible | changed: [localhost] => (item=openjdk-8-jdk)
+2022-10-27 02:56:12,205 p=1124 u=ubuntu n=ansible | changed: [localhost] => (item=maven)
+2022-10-27 02:56:12,226 p=1124 u=ubuntu n=ansible | TASK [Clone source code from github] *************************************************************************************************
+2022-10-27 02:56:13,611 p=1124 u=ubuntu n=ansible | fatal: [localhost]: FAILED! => {"changed": false, "cmd": "/usr/bin/git checkout --force vp-rem", "msg": "Failed to checkout vp-rem", "rc": 1, "stderr": "error: pathspec 'vp-rem' did not match any file(s) known to git\n", "stderr_lines": ["error: pathspec 'vp-rem' did not match any file(s) known to git"], "stdout": "", "stdout_lines": []}
+2022-10-27 02:56:13,615 p=1124 u=ubuntu n=ansible | PLAY RECAP ***************************************************************************************************************************
+2022-10-27 02:56:13,615 p=1124 u=ubuntu n=ansible | localhost                  : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-10-27 02:59:03,515 p=5812 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] ****************************************************************
+2022-10-27 02:59:03,552 p=5812 u=ubuntu n=ansible | TASK [Gathering Facts] ***************************************************************************************************************
+2022-10-27 02:59:05,109 p=5812 u=ubuntu n=ansible | ok: [localhost]
+2022-10-27 02:59:05,124 p=5812 u=ubuntu n=ansible | TASK [Install jdk, maven, git] *******************************************************************************************************
+2022-10-27 02:59:07,251 p=5812 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-10-27 02:59:09,153 p=5812 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-10-27 02:59:11,078 p=5812 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-10-27 02:59:11,090 p=5812 u=ubuntu n=ansible | TASK [Clone source code from github] *************************************************************************************************
+2022-10-27 02:59:15,765 p=5812 u=ubuntu n=ansible | changed: [localhost]
+2022-10-27 02:59:15,776 p=5812 u=ubuntu n=ansible | TASK [mvn install command to build artifact] *****************************************************************************************
+2022-10-27 03:00:05,952 p=5812 u=ubuntu n=ansible | changed: [localhost]
+2022-10-27 03:00:05,973 p=5812 u=ubuntu n=ansible | TASK [Copy artifacts to file directory] **********************************************************************************************
+2022-10-27 03:00:07,212 p=5812 u=ubuntu n=ansible | changed: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/Vprofile-repo/target/vprofile-v2.war)
+2022-10-27 03:00:07,224 p=5812 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] **********************************************************************************************
+2022-10-27 03:00:07,673 p=5812 u=ubuntu n=ansible | changed: [localhost]
+2022-10-27 03:00:07,689 p=5812 u=ubuntu n=ansible | PLAY RECAP ***************************************************************************************************************************
+2022-10-27 03:00:07,690 p=5812 u=ubuntu n=ansible | localhost                  : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-10-27 03:07:14,367 p=7051 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ***************************************************
+2022-10-27 03:07:14,384 p=7051 u=ubuntu n=ansible | TASK [Gathering Facts] ***************************************************************************************************************
+2022-10-27 03:07:16,373 p=7051 u=ubuntu n=ansible | ok: [web01]
+2022-10-27 03:07:16,526 p=7051 u=ubuntu n=ansible | ok: [cntl]
+2022-10-27 03:07:16,948 p=7051 u=ubuntu n=ansible | ok: [rmq01]
+2022-10-27 03:07:17,068 p=7051 u=ubuntu n=ansible | ok: [mc01]
+2022-10-27 03:07:18,372 p=7051 u=ubuntu n=ansible | ok: [app01]
+2022-10-27 03:07:19,465 p=7051 u=ubuntu n=ansible | ok: [db01]
+2022-10-27 03:07:19,482 p=7051 u=ubuntu n=ansible | TASK [Import VPC setup Variable] *****************************************************************************************************
+2022-10-27 03:07:19,537 p=7051 u=ubuntu n=ansible | ok: [cntl]
+2022-10-27 03:07:19,561 p=7051 u=ubuntu n=ansible | ok: [web01]
+2022-10-27 03:07:19,585 p=7051 u=ubuntu n=ansible | ok: [app01]
+2022-10-27 03:07:19,610 p=7051 u=ubuntu n=ansible | ok: [rmq01]
+2022-10-27 03:07:19,611 p=7051 u=ubuntu n=ansible | ok: [mc01]
+2022-10-27 03:07:19,621 p=7051 u=ubuntu n=ansible | ok: [db01]
+2022-10-27 03:07:19,631 p=7051 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] *******************************************************************************************
+2022-10-27 03:07:20,509 p=7051 u=ubuntu n=ansible | changed: [app01]
+2022-10-27 03:07:20,511 p=7051 u=ubuntu n=ansible | changed: [web01]
+2022-10-27 03:07:20,512 p=7051 u=ubuntu n=ansible | changed: [rmq01]
+2022-10-27 03:07:20,512 p=7051 u=ubuntu n=ansible | changed: [mc01]
+2022-10-27 03:07:20,561 p=7051 u=ubuntu n=ansible | changed: [cntl]
+2022-10-27 03:07:20,826 p=7051 u=ubuntu n=ansible | changed: [db01]
+2022-10-27 03:07:20,844 p=7051 u=ubuntu n=ansible | PLAY RECAP ***************************************************************************************************************************
+2022-10-27 03:07:20,844 p=7051 u=ubuntu n=ansible | app01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-10-27 03:07:20,844 p=7051 u=ubuntu n=ansible | cntl                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-10-27 03:07:20,844 p=7051 u=ubuntu n=ansible | db01                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-10-27 03:07:20,845 p=7051 u=ubuntu n=ansible | mc01                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-10-27 03:07:20,845 p=7051 u=ubuntu n=ansible | rmq01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-10-27 03:07:20,845 p=7051 u=ubuntu n=ansible | web01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
