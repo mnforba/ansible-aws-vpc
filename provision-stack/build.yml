@@ -16,7 +16,7 @@
 
     - name: Clone source code from github
       git:
-        repo: 'https://github.com/mnforba/ansible-aws-vpc.git'   # https://github.com/devopshydclub/vprofile-project.git
+        repo: 'https://github.com/devopshydclub/vprofile-project.git'
         dest: ./Vprofile-repo
         version: vp-rem
       register: git_status
